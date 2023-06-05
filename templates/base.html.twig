@@ -7,13 +7,37 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+                <!-- Bootstrap Css -->
+                <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+                <!-- Icons Css -->
+                <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+                <!-- App Css-->
+                <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body data-sidebar="dark" style="" class="">
+        {% block body %}
+                <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            {% include '/element/menu/menu.html.twig' %}
+     {#        {% block content %}
+            
+            {% endblock %}
+ #}
+        </div>
+        
+        {% endblock %}
     </body>
+            {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="/assets/libs/jquery/jquery.min.js"></script>
+            <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+            <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+            <script src="/assets/libs/node-waves/waves.min.js"></script>
+            <script src="/assets/js/app.js"></script>
+        {% endblock %}
 </html>
